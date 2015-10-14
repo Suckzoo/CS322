@@ -81,6 +81,7 @@
     <ClCompile Include="StateApple.cpp" />
     <ClCompile Include="StateAutomata.cpp" />
     <ClCompile Include="StateCalculator.cpp" />
+    <ClCompile Include="StateClaim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Machine.hpp" />

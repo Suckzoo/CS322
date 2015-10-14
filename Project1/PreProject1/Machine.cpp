@@ -38,7 +38,7 @@ void Machine::StateTransition(wchar_t x)
 		edge != m_pCurrentState.get()->m_Edge.end();
 		edge++)
 	{
-		if ((*edge)->m_CheckFunction(x))
+		if ((*edge)->m_CheckFunction(&this->m_pMachineResult, x))
 		{
 			(*edge)->m_TransitFunction(&this->m_pMachineResult, x); //필요하다면 두 번째 argument를 적극 활용할 것.
 			m_pCurrentState = (*edge)->m_NextState;
@@ -76,7 +76,8 @@ bool Machine::isValidPattern(wstring pattern)
 	return true;
 }
 
-void Machine::ConnectState(State* s1, State* s2, function<bool(wchar_t)> checker, function<void(wstring*, wchar_t)> transit)
+void Machine::ConnectState(State* s1, State* s2, function<bool(wstring*, wchar_t)> checker,
+						function<void(wstring*, wchar_t)> transit)
 {
 	Edge* edge = new Edge();
 	edge->m_NextState = shared_ptr<State>(s2);

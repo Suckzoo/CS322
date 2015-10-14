@@ -11,8 +11,9 @@ typedef function<void(wstring*, wchar_t)> transit_func;
 //Phase 1-1: Simple DFA Simulator
 //#define __APPLE__
 //#define __AUTOMATA__
+#define __CLAIM__
 
 //Phase 1-2: Simple Mealy Machine Simulator
-#define __CALC__
+//#define __CALC__
 
 #endif

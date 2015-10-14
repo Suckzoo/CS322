@@ -1,5 +1,6 @@
 #include "State.hpp"
 #ifdef __AUTOMATA__
+#include "func.hpp"
 #include "Machine.hpp"
 #include <functional>
 using namespace std;

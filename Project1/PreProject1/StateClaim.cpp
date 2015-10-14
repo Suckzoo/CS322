@@ -1,5 +1,5 @@
 #include "State.hpp"
-#ifdef __APPLE__
+#ifdef __CLAIM__
 #include "func.hpp"
 #include "Machine.hpp"
 #include <functional>
@@ -12,7 +12,7 @@ using namespace std;
 
 void Machine::GenerateLanguageSet()
 {
-	wstring lang = L"abcdefpl"; //You can define your own language set 
+	wstring lang = L"ab"; //You can define your own language set 
 	int i;
 	for (i = 0; i < lang.length(); i++)
 	{
@@ -42,19 +42,16 @@ void Machine::CreateStateEdge()
 	 */
 
 	//States goes here
-	CreateState(L"a");
-	CreateState(L"ap");
-	CreateState(L"app");
-	CreateState(L"appl");
-	CreateState(L"apple");
-	m_pLabelToState[L"apple"].get()->setFinal();
+	CreateState(L"q1");
+	CreateState(L"q2");
+	m_pLabelToState[L"q2"].get()->setFinal();
 	
 	//Connection goes here
 	//with lambda
-	ConnectState(m_pLabelToState[L"initial"].get(), m_pLabelToState[L"a"].get(), [](wchar_t x) {return x == L'a'; }, DO_NOTHING);
-	ConnectState(m_pLabelToState[L"a"].get(), m_pLabelToState[L"ap"].get(), [](wchar_t x) {return x == L'p'; }, DO_NOTHING);
-	ConnectState(m_pLabelToState[L"ap"].get(), m_pLabelToState[L"app"].get(), [](wchar_t x) {return x == L'p'; }, DO_NOTHING);
-	ConnectState(m_pLabelToState[L"app"].get(), m_pLabelToState[L"appl"].get(), [](wchar_t x) {return x == L'l'; }, DO_NOTHING);
-	ConnectState(m_pLabelToState[L"appl"].get(), m_pLabelToState[L"apple"].get(), [](wchar_t x) {return x == L'e'; }, DO_NOTHING);
+	ConnectState(m_pLabelToState[L"initial"].get(), m_pLabelToState[L"q1"].get(), [](wchar_t x) {return x == L'a'; }, DO_NOTHING);
+	ConnectState(m_pLabelToState[L"initial"].get(), m_pLabelToState[L"q2"].get(), [](wchar_t x) {return x == L'b'; }, DO_NOTHING);
+	ConnectState(m_pLabelToState[L"q1"].get(), m_pLabelToState[L"q2"].get(), [](wchar_t x) {return x == L'b'; }, DO_NOTHING);
+	ConnectState(m_pLabelToState[L"q2"].get(), m_pLabelToState[L"q1"].get(), [](wchar_t x) {return x == L'a'; }, DO_NOTHING);
+	ConnectState(m_pLabelToState[L"q2"].get(), m_pLabelToState[L"q2"].get(), [](wchar_t x) {return x == L'b'; }, DO_NOTHING);
 }
 #endif

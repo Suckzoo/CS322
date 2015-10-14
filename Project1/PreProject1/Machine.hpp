@@ -28,7 +28,7 @@ public:
 class Edge
 {
 public:
-	function<bool(wchar_t)> m_CheckFunction;
+	function<bool(wstring*, wchar_t)> m_CheckFunction;
 	function<void(wstring*, wchar_t)> m_TransitFunction;
 	shared_ptr<State> m_NextState;
 };
@@ -45,7 +45,7 @@ private:
 	void GenerateLanguageSet();
 	void CreateStateEdge();
 	void ConnectState(State* s1, State* s2, 
-		function<bool(wchar_t)> checker, 
+		function<bool(wstring*, wchar_t)> checker, 
 		function<void(wstring*, wchar_t)> transit);
 	void CreateState(wstring label, bool isFinal = false);
 public:

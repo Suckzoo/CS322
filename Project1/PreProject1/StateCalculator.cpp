@@ -1,5 +1,6 @@
 #include "State.hpp"
 #ifdef __CALC__
+#include "func.hpp"
 #include "Machine.hpp"
 #include <functional>
 #define NUM_CHECK [](wchar_t x) {return L'0' <= x && x <= L'9'; }

@@ -76,15 +76,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Func.cpp" />
+    <ClCompile Include="Hangul.cpp" />
     <ClCompile Include="Machine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="StateApple.cpp" />
     <ClCompile Include="StateAutomata.cpp" />
     <ClCompile Include="StateCalculator.cpp" />
+    <ClCompile Include="StateClaim.cpp" />
+    <ClCompile Include="StateHangulBatchim.cpp" />
+    <ClCompile Include="StateHangulChosung.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Hangul.hpp" />
     <ClInclude Include="Machine.hpp" />
     <ClInclude Include="State.hpp" />
+    <ClInclude Include="func.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
