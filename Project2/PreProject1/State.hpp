@@ -14,6 +14,9 @@
 
 //Phase 1-3: Hangul Automata
 //#define __HANGUL1__
-#define __HANGUL2__
+//#define __HANGUL2__
+
+//Phase 2-1: eNFA to mDFA
+#define __NFATEST__
 
 #endif
