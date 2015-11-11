@@ -44,10 +44,10 @@
     <ClInclude Include="func.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="NFAMachine.h">
+    <ClInclude Include="MachineConverter.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MachineConverter.h">
+    <ClInclude Include="NFAMachine.hpp">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

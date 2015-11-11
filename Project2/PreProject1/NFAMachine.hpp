@@ -3,19 +3,16 @@
 #include "Machine.hpp"
 #include "State.hpp"
 
-class NFAMachine: Machine
+class NFAMachine: public Machine
 {
 public:
 	struct NFAInstance
 	{
-		struct edge
-		{
-			wchar_t w;
-			int v;
-		};
+		map<wchar_t, vector<int>> edge[110];
 		int n, m;
+		int q0;
+		set<int> accept;
 		wstring language;
-		vector<edge> e[110];
 		void PrintInformation();
 	};
 	NFAMachine();
