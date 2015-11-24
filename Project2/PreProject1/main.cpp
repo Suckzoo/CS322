@@ -3,12 +3,14 @@
 #include <string>
 #include <locale>
 #include "NFAMachine.hpp"
+#include "RegexConverter.hpp"
 using namespace std;
 wchar_t temp[MAX_LENGTH];
 wstring input;
 int main()
 {
 	locale::global(locale("Korean"));
+	ParseRegex();
 	NFAMachine* m = new NFAMachine("input.txt");
 	wscanf(L"%ls", temp);
 	input = temp;

@@ -203,6 +203,9 @@ NFAMachine::NFAInstance* MinimizeDFA(NFAMachine::NFAInstance instance)
 				{
 					for (L = 0; L < lang.length(); L++)
 					{
+						if (!instance.edge[pi][lang[L]].size() && instance.edge[pj][lang[L]].size()) break;
+						if (instance.edge[pi][lang[L]].size() && !instance.edge[pj][lang[L]].size()) break;
+						if (!instance.edge[pi][lang[L]].size() && !instance.edge[pj][lang[L]].size()) continue;
 						if (ds.Find(instance.edge[pi][lang[L]][0]) != ds.Find(instance.edge[pj][lang[L]][0]))
 						{
 							break;
