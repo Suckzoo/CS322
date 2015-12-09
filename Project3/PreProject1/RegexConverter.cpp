@@ -199,14 +199,15 @@ pair<int, int> Parse(int s, int e)
 	}
 	return pair<int, int>(conS, conV);
 }
-void ParseRegex()
+void ParseRegex(string input)
 {
+	FILE *in = fopen(input.c_str(), "rt");
 	FILE *out = fopen("input.txt", "wt");
-	wprintf(L"Input vocabulary (except *):\n");
-	wscanf(L"%s", stream);
+	//wprintf(L"Input vocabulary (except *):\n");
+	fwscanf(in, L"%s", stream);
 	fwprintf(out, L"%s\n", stream);
-	wprintf(L"Input regular expression:\n");
-	wscanf(L"%s", stream);
+	//wprintf(L"Input regular expression:\n");
+	fwscanf(in, L"%s", stream);
 	reg = stream;
 	Parenthesize();
 	pair<int, int> pv = Parse(0, reg.length()-1);
